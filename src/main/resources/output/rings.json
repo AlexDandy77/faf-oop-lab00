@@ -1,0 +1,28 @@
+{
+  "name" : "Lord of the Rings",
+  "individuals" : [ {
+    "id" : 4,
+    "planet" : "Earth",
+    "age" : 0,
+    "traits" : [ "SHORT", "BULKY" ],
+    "humanoid" : null
+  }, {
+    "id" : 9,
+    "planet" : "Earth",
+    "age" : 124,
+    "traits" : [ "SHORT", "BULKY" ],
+    "humanoid" : true
+  }, {
+    "id" : 14,
+    "planet" : null,
+    "age" : 7523,
+    "traits" : [ ],
+    "humanoid" : true
+  }, {
+    "id" : 19,
+    "planet" : "Earth",
+    "age" : 451,
+    "traits" : [ "BLONDE", "POINTY_EARS" ],
+    "humanoid" : true
+  } ]
+}

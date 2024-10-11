@@ -1,0 +1,28 @@
+{
+  "name" : "Marvel",
+  "individuals" : [ {
+    "id" : 7,
+    "planet" : "Asgard",
+    "age" : 2034,
+    "traits" : [ "BLONDE", "TALL" ],
+    "humanoid" : true
+  }, {
+    "id" : 15,
+    "planet" : "Asgard",
+    "age" : 451,
+    "traits" : [ "BLONDE", "TALL" ],
+    "humanoid" : true
+  }, {
+    "id" : 17,
+    "planet" : null,
+    "age" : 154,
+    "traits" : [ "BLONDE", "TALL" ],
+    "humanoid" : true
+  }, {
+    "id" : 18,
+    "planet" : "Asgard",
+    "age" : 0,
+    "traits" : [ "BLONDE", "TALL" ],
+    "humanoid" : true
+  } ]
+}
