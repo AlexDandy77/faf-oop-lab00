@@ -52,11 +52,26 @@ public class Main {
             }
         }
 
+        View view = new View();
+
         // Write JSON to files
-        mapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/output/starwars.json"), new Universe("Star Wars", starWars));
-        mapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/output/marvel.json"), new Universe("Marvel", marvel));
-        mapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/output/hitchhiker.json"), new Universe("Hitchhiker", hitchHiker));
-        mapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/output/rings.json"), new Universe("Lord of the Rings", rings));
+        view.writeJsonToFile(new Universe("Marvel", marvel), "src/main/resources/output/marvel.json");
+        view.writeJsonToFile(new Universe("Star Wars", starWars), "src/main/resources/output/starwars.json");
+        view.writeJsonToFile(new Universe("Hitchhiker", hitchHiker), "src/main/resources/output/hitchhiker.json");
+        view.writeJsonToFile(new Universe("Lord of the Rings", rings), "src/main/resources/output/rings.json");
+
+        // Write JSON string to console
+        String marvelJsonString = view.writeJsonToString(new Universe("Marvel", marvel));
+        System.out.println(marvelJsonString);
+
+        String starwarsJsonString = view.writeJsonToString(new Universe("Star Wars", starWars));
+        System.out.println(starwarsJsonString);
+
+        String hitchhikerJsonString = view.writeJsonToString(new Universe("Hitchhiker", hitchHiker));
+        System.out.println(hitchhikerJsonString);
+
+        String lordofringsJsonString = view.writeJsonToString(new Universe("Lord of the Rings", rings));
+        System.out.println(lordofringsJsonString);
     }
 }
 
