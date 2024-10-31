@@ -1,24 +1,18 @@
 package oop.practice.lab2.task1;
 
-public abstract class Coffee {
+public class Coffee {
     protected Intensity coffeeIntensity;
-    protected final String name;
+    protected final String name = "Coffee";
 
-    public Coffee(Intensity coffeeIntensity, String name) {
+    public Coffee(Intensity coffeeIntensity) {
         this.coffeeIntensity = coffeeIntensity;
-        this.name = name;
     }
 
-    public Intensity getCoffeeIntensity() { return coffeeIntensity; }
-    public String getName() { return name; }
-
-    // Common coffee details
-    public void printCoffeeDetails() {
-        System.out.println("Coffee type: " + name);
-        System.out.println("Intensity: " + coffeeIntensity);
-        printExtraDetails();
+    public Intensity getCoffeeIntensity() {
+        return coffeeIntensity;
     }
 
-    // Unique coffee details
-    protected abstract void printExtraDetails();
+    public String getName() {
+        return name;
+    }
 }
