@@ -3,23 +3,19 @@ package oop.practice.lab2.task1;
 public class PumpkinSpiceLatte extends Coffee {
     private int mlOfMilk;
     private int mgOfPumpkinSpice;
-    private final String name = "PumpkinSpiceLatte";
 
     public PumpkinSpiceLatte(Intensity coffeeIntensity, int mlOfMilk, int mgOfPumpkinSpice) {
-        super(coffeeIntensity);
+        super(coffeeIntensity, "Pumpkin Spice Latte");
         this.mlOfMilk = mlOfMilk;
         this.mgOfPumpkinSpice = mgOfPumpkinSpice;
     }
 
-    public int getMlOfMilk() {
-        return mlOfMilk;
-    }
+    public int getMlOfMilk() { return mlOfMilk; }
+    public int getMgOfPumpkinSpice() { return mgOfPumpkinSpice; }
 
-    public int getMgOfPumpkinSpice() {
-        return mgOfPumpkinSpice;
-    }
-
-    public String getName() {
-        return name;
+    @Override
+    protected void printExtraDetails() {
+        System.out.println("Milk: " + mlOfMilk + " ml");
+        System.out.println("Pumpkin spice: " + mgOfPumpkinSpice + " mg");
     }
 }

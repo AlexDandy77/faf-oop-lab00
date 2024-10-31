@@ -2,18 +2,16 @@ package oop.practice.lab2.task1;
 
 public class Americano extends Coffee {
     private int mlOfWater;
-    private final String coffeeName = "Americano";
 
     public Americano(Intensity coffeeIntensity, int mlOfWater) {
-        super(coffeeIntensity);
+        super(coffeeIntensity, "Americano");
         this.mlOfWater = mlOfWater;
     }
 
-    public int getMlOfWater() {
-        return mlOfWater;
-    }
+    public int getMlOfWater() { return mlOfWater; }
 
-    public String getCoffeeName() {
-        return coffeeName;
+    @Override
+    protected void printExtraDetails() {
+        System.out.println("Water: " + mlOfWater + " ml");
     }
 }

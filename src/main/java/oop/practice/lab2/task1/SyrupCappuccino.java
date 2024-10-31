@@ -1,19 +1,20 @@
 package oop.practice.lab2.task1;
 
-public class SyrupCappuccino extends Cappuccino {
+public class SyrupCappuccino extends Coffee {
+    private int mlOfMilk;
     private SyrupType syrup;
-    private final String coffee = "SyrupCappuccino";
 
     public SyrupCappuccino(Intensity coffeeIntensity, int mlOfMilk, SyrupType syrup) {
-        super(coffeeIntensity, mlOfMilk);
+        super(coffeeIntensity, "Syrup Cappuccino");
+        this.mlOfMilk = mlOfMilk;
         this.syrup = syrup;
     }
 
-    public SyrupType getSyrup() {
-        return syrup;
-    }
+    public SyrupType getSyrup() { return syrup; }
 
-    public String getCoffee() {
-        return coffee;
+    @Override
+    protected void printExtraDetails() {
+        System.out.println("Milk: " + mlOfMilk + " ml");
+        System.out.println("Syrup type: " + syrup);
     }
 }
