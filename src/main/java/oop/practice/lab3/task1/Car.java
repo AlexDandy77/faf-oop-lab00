@@ -1,4 +1,4 @@
-package oop.practice.lab3;
+package oop.practice.lab3.task1;
 
 public class Car {
     private int id;

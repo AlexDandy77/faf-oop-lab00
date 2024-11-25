@@ -1,4 +1,4 @@
-package oop.practice.lab3;
+package oop.practice.lab3.task1;
 
 public interface Queue<T> {
     void enqueue(T element);  // Add an element to the queue
