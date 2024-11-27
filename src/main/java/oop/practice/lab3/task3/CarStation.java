@@ -2,8 +2,7 @@ package oop.practice.lab3.task3;
 
 import oop.practice.lab3.task1.Queue;
 import oop.practice.lab3.task1.Car;
-import oop.practice.lab3.task2.Dineable;
-import oop.practice.lab3.task2.Refuelable;
+import oop.practice.lab3.task2.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,5 +53,16 @@ public class CarStation {
 
     public Map<String, Integer> getStatistics() {
         return statistics;
+    }
+
+    public boolean acceptsCar(Car car) {
+        if (diningService instanceof PeopleDinner && "PEOPLE".equals(car.getPassengers()) ||
+        diningService instanceof RobotDinner && "ROBOTS".equals(car.getPassengers())) {
+            if (refuelingService instanceof ElectricStation && "ELECTRIC".equals(car.getType()) ||
+            refuelingService instanceof GasStation && "GAS".equals(car.getType())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
