@@ -2,6 +2,7 @@ package oop.practice.lab3.task4;
 
 import oop.practice.lab3.task1.Car;
 import oop.practice.lab3.task3.CarStation;
+
 import java.util.List;
 
 public class Semaphore {
@@ -15,6 +16,7 @@ public class Semaphore {
         for (CarStation station : stations) {
             if (station.acceptsCar(car)) {
                 station.addCar(car);
+                station.serveCars();
                 return;
             }
         }

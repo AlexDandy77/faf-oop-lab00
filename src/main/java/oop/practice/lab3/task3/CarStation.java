@@ -1,7 +1,7 @@
 package oop.practice.lab3.task3;
 
-import oop.practice.lab3.task1.Queue;
 import oop.practice.lab3.task1.Car;
+import oop.practice.lab3.task1.Queue;
 import oop.practice.lab3.task2.*;
 
 import java.util.HashMap;
@@ -12,12 +12,13 @@ public class CarStation {
     private final Refuelable refuelingService;
     private final Queue<Car> queue;
     private final Map<String, Integer> statistics = new HashMap<>();
+    private final String name;
 
-    // Constructor with Dependency Injection
-    public CarStation(Dineable diningService, Refuelable refuelingService, Queue<Car> queue) {
+    public CarStation(Dineable diningService, Refuelable refuelingService, Queue<Car> queue, String name) {
         this.diningService = diningService;
         this.refuelingService = refuelingService;
         this.queue = queue;
+        this.name = name;
 
         // Initialize statistics
         statistics.put("CarsServed", 0);
@@ -28,13 +29,13 @@ public class CarStation {
 
     public void addCar(Car car) {
         queue.enqueue(car);
-        System.out.println("Added car to queue: " + car);
+        System.out.println("\nAdded car to " + name + ": " + car);
     }
 
     public void serveCars() {
         while (!queue.isEmpty()) {
             Car car = queue.dequeue();
-            System.out.println("\nServing car: " + car);
+            System.out.println("Processing car " + car.getId() + " from " + name + ".");
 
             // Update statistics
             statistics.put("CarsServed", statistics.get("CarsServed") + 1);
@@ -48,6 +49,8 @@ public class CarStation {
 
             // Refuel the car
             refuelingService.refuel(car.getId());
+            System.out.println("Refueled car " + car.getId() + " with consumption " + car.getConsumption() + ".");
+
         }
     }
 
@@ -56,13 +59,14 @@ public class CarStation {
     }
 
     public boolean acceptsCar(Car car) {
-        if (diningService instanceof PeopleDinner && "PEOPLE".equals(car.getPassengers()) ||
-        diningService instanceof RobotDinner && "ROBOTS".equals(car.getPassengers())) {
-            if (refuelingService instanceof ElectricStation && "ELECTRIC".equals(car.getType()) ||
-            refuelingService instanceof GasStation && "GAS".equals(car.getType())) {
-                return true;
-            }
-        }
-        return false;
+        boolean matchesDining = (diningService instanceof PeopleDinner && "PEOPLE".equals(car.getPassengers())) ||
+                (diningService instanceof RobotDinner && "ROBOTS".equals(car.getPassengers()));
+        boolean matchesFuel = (refuelingService instanceof ElectricStation && "ELECTRIC".equals(car.getType())) ||
+                (refuelingService instanceof GasStation && "GAS".equals(car.getType()));
+        return matchesDining && matchesFuel;
+    }
+
+    public String getName() {
+        return name;
     }
 }

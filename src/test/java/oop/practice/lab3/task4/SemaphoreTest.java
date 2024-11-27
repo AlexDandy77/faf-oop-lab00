@@ -20,10 +20,10 @@ class SemaphoreTest {
     @Test
     void testSemaphoreRouting() {
         // Create CarStations
-        CarStation electricPeopleStation = new CarStation(new PeopleDinner(), new ElectricStation(), new SimpleQueue<>(10));
-        CarStation electricRobotsStation = new CarStation(new RobotDinner(), new ElectricStation(), new SimpleQueue<>(10));
-        CarStation gasPeopleStation = new CarStation(new PeopleDinner(), new GasStation(), new SimpleQueue<>(10));
-        CarStation gasRobotsStation = new CarStation(new RobotDinner(), new GasStation(), new SimpleQueue<>(10));
+        CarStation electricPeopleStation = new CarStation(new PeopleDinner(), new ElectricStation(), new SimpleQueue<>(10), "electricPeopleStation");
+        CarStation electricRobotsStation = new CarStation(new RobotDinner(), new ElectricStation(), new SimpleQueue<>(10), "electricRobotsStation");
+        CarStation gasPeopleStation = new CarStation(new PeopleDinner(), new GasStation(), new SimpleQueue<>(10), "gasPeopleStation");
+        CarStation gasRobotsStation = new CarStation(new RobotDinner(), new GasStation(), new SimpleQueue<>(10), "gasRobotsStation");
 
         // Add CarStations to a list
         List<CarStation> stations = new ArrayList<>();

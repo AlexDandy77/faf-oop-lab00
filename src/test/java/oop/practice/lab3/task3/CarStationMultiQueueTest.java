@@ -17,7 +17,6 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarStationMultiQueueTest {
-
     private static final String QUEUE_DIR = "src/main/java/oop/practice/lab3/generator/queue";
 
     @Test
@@ -30,10 +29,10 @@ class CarStationMultiQueueTest {
         assertNotNull(files, "No JSON files found in the queue directory.");
         int capacity = files.length;
 
-        CarStation electricPeopleStation = new CarStation(new PeopleDinner(), new ElectricStation(), new SimpleQueue<>(capacity));
-        CarStation electricRobotsStation = new CarStation(new RobotDinner(), new ElectricStation(), new SimpleQueue<>(capacity));
-        CarStation gasPeopleStation = new CarStation(new PeopleDinner(), new GasStation(), new SimpleQueue<>(capacity));
-        CarStation gasRobotsStation = new CarStation(new RobotDinner(), new GasStation(), new SimpleQueue<>(capacity));
+        CarStation electricPeopleStation = new CarStation(new PeopleDinner(), new ElectricStation(), new SimpleQueue<>(capacity), "electricPeopleStation");
+        CarStation electricRobotsStation = new CarStation(new RobotDinner(), new ElectricStation(), new SimpleQueue<>(capacity), "electricRobotsStation");
+        CarStation gasPeopleStation = new CarStation(new PeopleDinner(), new GasStation(), new SimpleQueue<>(capacity), "gasPeopleStation");
+        CarStation gasRobotsStation = new CarStation(new RobotDinner(), new GasStation(), new SimpleQueue<>(capacity), "gasRobotsStation");
 
         Gson gson = new Gson();
 
